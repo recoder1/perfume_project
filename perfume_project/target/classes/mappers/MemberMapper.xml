@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+	<insert id ="userInsert" parameterType = "member">
+	
+		INSERT INTO member(user_id, user_password, email, nickname, tel, name, h_follower, h_following
+		<if test = "user_fname != null " >
+			,user_fname,user_fname_en
+		</if>
+		)   VALUES (#{user_id}, #{user_password}, #{email}, #{nickname}, #{tel}, #{name}, 0, 0
+		<if test = "user_fname != null">
+			,#{user_fname}, #{user_fname_en}
+		</if>
+		)
+		
+	</insert>
+	
+	<select id = "idCheck" parameterType = "member" resultType = "member"> 
+	
+		SELECT * FROM member
+		WHERE user_id = #{user_id}
+		
+	</select>
+	
+	<select id = "emailCheck" parameterType = "member" resultType = "member"> 
+	
+		SELECT * FROM member
+		WHERE email = #{email}
+		
+	</select>
+	
+	<select id = "nicknameCheck" parameterType = "member" resultType = "member"> 
+	
+		SELECT * FROM member
+		WHERE nickname = #{nickname}
+		
+	</select>
+	
+	<select id = "userLogin" parameterType = "member" resultType = "member">
+	
+		SELECT * FROM member
+				 WHERE user_id = #{user_id}
+		<if test = "user_password != null">
+				AND user_password = #{user_password}
+		</if> 
+		
+	</select>
+	
+	<select id = "memberView" parameterType ="member" resultType = "member">
+	
+		SELECT * FROM member
+		
+	</select>
+	
+	<update id = "memberInfoChange" parameterType = "member"> 
+		
+		UPDATE MEMBER
+		SET user_id = #{user_id},
+			user_password = #{user_password},
+			email = #{email},
+			nickname = #{nickname}
+			<if  test = "user_fname != null ">
+			, user_fname = #{user_fname},
+			user_fname_en = #{user_fname_en}
+			</if>
+		WHERE user_id = #{user_id}
+		
+		
+	</update>
+	
+	<delete id= "memberDelete">
+	
+		DELETE FROM MEMBER
+		WHERE user_id = #{user_id}
+		  AND user_password = #{user_password}
+	
+	</delete>
+
+</mapper>

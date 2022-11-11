@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+
+        /* footer 하단 고정을 위한 값 */
+        main {
+            padding-bottom: 82.56px;
+        } 
+
+        .m-auto {
+            padding-top: 0 !important;
+        }
+
+        .btn {
+            width : 160px !important;
+            height: 70px !important;
+            background-color: rgb(255 240 240 / 70%);
+            color : rgba(0, 0, 0, 0.804);
+            border: none;
+            border-radius: 5px !important ;
+            font-size: 12pt !important;
+            vertical-align: middle ;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.804);
+            color: rgb(255 240 240);
+        }
+
+        .col-3, .col-12 {
+            width : 800px;
+            margin : -30px;
+            padding-left: 21px;
+        }
+
+        .mt-5 {
+            margin-top: 10px !important;
+            
+        }
+
+        .product-card-01 {
+            display: flex !important; 
+            padding: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            border: none;
+            margin: 7px;
+        }
+
+        .card11, .card02 {
+            padding : 10px !important;
+        } 
+        
+        .card02 .btn {
+           width : 248px !important;
+        }
+        
+        h6 {
+            text-align: center;
+        }
+
+        .image {
+            width: 250px !important;
+        }
+
+        .row {
+            justify-content: center;
+            border: none;
+        }
+        .season {
+            width: 350px !important;
+            margin-top: -30px !important;
+            margin-bottom: -40px !important;
+        }
+
+        img, .product-media-hover {
+            border-radius: 5px;
+        }
+
+        
+
+        /* 진행바 */
+        .progressbar-wrapper {
+            background: #fff;
+            width: 800px;
+            padding-top: 10px;
+           padding-left: 50px;
+        }
+        
+
+        .progressbar li {
+            list-style-type: none;
+            width: 70px;
+            float: left;
+            font-size: 12px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7d7d7d;
+        }
+        .progressbar li:before {
+            width: 18px;
+            height: 18px;
+            content: "";
+            line-height: 60px;
+            border: 2px solid #7d7d7d;
+            display: block;
+            text-align: center;
+            margin: 0 auto 3px auto;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            background-color: #fff;
+        }
+        .progressbar li:after {
+            width: 77px;
+            height: 2px;
+            content: '';
+            position: absolute;
+            background-color: #7d7d7d;
+            top: 9px;
+            left: -50%;
+            z-index: 0;
+        }
+        .progressbar li:first-child:after {
+            content: none;
+        }
+        .progressbar li.active:before {
+           border-color: rgba(128, 128, 128, 0.178);
+           background-color :  grey;
+        }
+        .progressbar li.active_now:before {
+           
+            border-color:rgb(190, 122, 122) ;
+            background-color :rgb(231, 124, 124);
+        }
+        
+        .notes{
+        	display: inline-block;
+        	width: 157px;
+        	height: 104.66px;
+        }

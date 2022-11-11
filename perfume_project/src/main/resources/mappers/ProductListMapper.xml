@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="product_list">
+	
+	<select id="pro_list" parameterType="listVO" resultType="listVO">
+		select * from perfume_list
+		where productid = #{productid}
+	</select>
+	
+	<select id="p_list" resultType="listVO" parameterType="searchCriteriaGyu">
+		SELECT *
+		from (
+		SELECT a.*, row_number() over(ORDER BY productid DESC) as RNUM
+		 FROM perfume_list a
+		<if test='!brand.equals("all")'>
+			where brand = #{brand}
+		</if>
+		 ) perfume_list
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+	</select>
+	
+	<!-- 총 게시글 갯수 -->
+	<select id="getListCnt" resultType="int" parameterType="searchCriteriaGyu">
+		SELECT
+			count(*) as listCnt
+		FROM
+			perfume_list
+		<if test='!brand.equals("all")'>
+			where brand = #{brand}
+		</if>
+	</select>
+	
+	<select id="search" resultType="listVO" parameterType="searchCriteriaGyu">
+		SELECT *
+		from (
+		SELECT a.*, row_number() over(ORDER BY productid DESC) as RNUM
+		 FROM perfume_list a
+		 
+		where (upper(product_name) LIKE upper('%' || #{keyword} || '%')) 
+			or (upper(COMENT) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT1) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT2) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT3) LIKE upper('%' || #{keyword} || '%'))
+		) perfume_list
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+	</select>
+	
+	<select id="searchCnt" resultType="int" parameterType="searchCriteriaGyu">
+		SELECT
+			count(*) as listCnt
+		FROM
+			perfume_list
+		where (upper(product_name) LIKE upper('%' || #{keyword} || '%')) 
+			or (upper(COMENT) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT1) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT2) LIKE upper('%' || #{keyword} || '%'))
+			or (upper(COMENT3) LIKE upper('%' || #{keyword} || '%'))
+	</select>
+	
+	<!-- 브랜드 출력 -->
+	<select id="product_brand" parameterType="listVO" resultType="listVO">
+		select brand from PERFUME_LIST
+		group by brand
+		order by upper(brand)	
+	</select>
+	
+	
+	
+	
+	
+</mapper>

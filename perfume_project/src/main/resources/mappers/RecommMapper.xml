@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="recomm">
+	<insert id="resultInsert" parameterType="recomm">
+		INSERT INTO test_result (result_id, gender, age, strength, lasting, season, mood, mood2, user_likes, user_likes2, user_hates, user_hates2, result_code)
+		VALUES (#{result_id}, #{gender}, #{age}, #{strength}, #{lasting}, #{season}, #{mood}, #{mood2}, #{user_likes}, #{user_likes2}, #{user_hates}, #{user_hates2}, #{result_code})
+	</insert>
+	<select id="search" parameterType="map" resultType="product">
+		SELECT * FROM perfume_list
+		WHERE REGEXP_LIKE(productid, ${include})
+		AND note1 NOT IN (${exclude})
+		AND note2 NOT IN (${exclude})
+		AND note3 NOT IN (${exclude})
+	</select>
+
+</mapper>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="Perfume_StoryDAO">
+	
+	<!-- 홈 화면 목록 출력 -->
+	<select id="mainStoryList" resultType="board">
+		SELECT ps_article_id, ps_title, ps_commCnt 
+		 FROM (
+		 SELECT ps_article_id, ps_title, ps_commCnt
+		 FROM perfume_story
+		 ORDER BY ps_count DESC ) 
+		 <![CDATA[where rownum <= 4]]>
+	</select>
+ 	
+	<!-- 게시물 목록 -->
+	<select id="list" resultType="board" parameterType="searchCriteria">
+		SELECT ps_article_id, ps_head, ps_title, user_id, ps_date, ps_count, ps_commCnt
+		from (
+		SELECT ps_article_id, ps_head, ps_title, user_id, ps_date, ps_count, ps_commCnt,
+		  row_number() over(ORDER BY ps_article_id DESC) as RNUM
+		 FROM perfume_story  <include refid="search"></include>
+		 ) perfume_story
+		 WHERE RNUM BETWEEN #{rowStart} and #{rowEnd}	<!-- 시작값과 끝값 -->
+         ORDER BY ps_article_id DESC
+	</select>
+	
+	<!--  총 게시글 개수-->
+	<select id="listCount" resultType="int" parameterType="searchCriteria">
+        SELECT
+            count(ps_article_id)
+        FROM
+            perfume_story
+        <include refid="search"></include>
+	</select>
+	
+	<sql id= "search">
+		<if test="searchType != null">
+			<if test="searchType == 'all'.toString()">
+			where (ps_title LIKE '%' || #{keyword} || '%') 
+			or (ps_content LIKE '%' || #{keyword} || '%') 
+			or (user_id LIKE '%' || #{keyword} || '%')</if>
+			<if test="searchType == 'title'.toString()">
+			where (ps_title LIKE '%' || #{keyword} || '%')</if>
+			<if test="searchType == 'con'.toString()">
+			where (ps_content LIKE '%' || #{keyword} || '%')</if>
+			<if test="searchType == 'user_id'.toString()">
+			where (user_id LIKE '%' || #{keyword} || '%')</if>
+			
+		</if>
+	</sql>
+	
+	
+	<!-- 글 등록 -->
+	<insert id= "saveBoard" parameterType="board">
+		INSERT INTO perfume_story
+	      ( ps_article_id, ps_title, ps_head, ps_content, ps_date, user_id
+	         <if test="ps_fname != null">
+	         ,ps_fname, ps_fsize, ps_fname_en
+	         </if>
+	      )  VALUES ( 
+	       perfume_story_seq.nextval, #{ps_title}, #{ps_head}, #{ps_content}, sysdate, #{user_id}
+	         <if test="ps_fname != null">
+	         ,#{ps_fname}, #{ps_fsize}, #{ps_fname_en}
+	         </if>            
+	      )
+	</insert>
+
+	
+	<!-- 조회수 증가 -->
+	<update id="storyViewCount">
+		UPDATE perfume_story
+		SET ps_count = ps_count +1
+		WHERE ps_article_id = #{ps_article_id}
+	</update>
+	
+	<!-- 글 상세 조회 -->
+	<select id="getBoard_story" resultType="board" parameterType="board">
+		SELECT * FROM perfume_story 
+		WHERE ps_article_id = #{ps_article_id}
+	</select>
+	
+	
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="board">
+       UPDATE perfume_story
+       SET ps_title = #{ps_title}, ps_head = #{ps_head}, ps_content = #{ps_content}
+       <if test="ps_fname_en != null">
+	        ,ps_fname=#{ps_fname}, ps_fsize=#{ps_fsize}, ps_fname_en =#{ps_fname_en}
+	   </if>
+       WHERE ps_article_id = #{ps_article_id}
+    </update>
+    
+    <!-- 글 삭제 -->
+    <delete id="deleteBoard" parameterType="board">
+       DELETE 
+         FROM perfume_story
+       WHERE ps_article_id = #{ps_article_id}
+    </delete>
+    
+    
+    <!-- 파일 다운 -->
+    <select id="fileDown" parameterType="board" resultType="board">
+    	SELECT * FROM perfume_story
+    	WHERE ps_article_id = #{ps_article_id} 
+    </select>
+	
+	
+	
+	<!-- 댓글 리스트 불러오기 -->
+	<select id = "commList" resultType="comment">
+		SELECT *
+		FROM perfume_story_comm
+		WHERE ps_article_id = #{ps_article_id}
+		ORDER BY psc_comment_id	ASC
+	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id= "insertComm" parameterType="comment">
+	INSERT INTO perfume_story_comm 
+      (  ps_article_id, psc_comment_id, psc_user_id, psc_content, psc_date
+     )  VALUES ( #{ps_article_id}, ps_comm_seq.nextval, #{psc_user_id} , #{psc_content}, sysdate
+     )
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComm" parameterType="comment">
+       UPDATE perfume_story_comm
+       SET psc_content = #{psc_content}
+       WHERE psc_comment_id = #{psc_comment_id}
+    </update>
+    
+    <!-- 댓글 삭제 -->
+    <delete id="deleteComm" parameterType="int">
+       DELETE 
+         FROM perfume_story_comm
+       WHERE psc_comment_id = #{psc_comment_id}
+    </delete>
+    <!-- ﻿on delete cascade 글 지울 때 댓글도 지워져야함 -->
+    
+    <!-- 댓글 개수 -->
+    <update id="commCnt" parameterType="int">
+        UPDATE perfume_story s
+            SET s.ps_commCnt = (select count(psc_comment_id) from perfume_story_comm 
+            where ps_article_id = #{ps_article_id}) 
+        WHERE s.ps_article_id = #{ps_article_id}
+    </update>
+	
+
+</mapper>
+
+
+

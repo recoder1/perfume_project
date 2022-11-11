@@ -1,0 +1,531 @@
+/* singup css start */
+
+#SignUp_termsClick:hover{
+    text-decoration: underline;
+}
+
+#SignUp_profileImgPreCheckDiv{
+	text-align: center;
+	width: 33%;
+	margin: 0 auto;
+	display: flex;
+	position : relative;
+	border-radius: 50%;
+}
+
+#SignUp_profileImgPreCheckDiv:after{
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+#SignUp_profileImgPreCheckImg{
+	border-radius: 50%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+/* #SignUp_termsClose{
+	color: black;
+	}
+
+popupmenu css Start
+
+#SignUp_termsModal{
+	position:absolute; 
+  	width:70%; height:50%; 
+  	background: white;
+  	top: 0;
+  	left: 0;
+  	border-radius : 10%;
+  	display:none;
+  	text-align: center;
+  	color: black;
+}
+
+#SignUp_termsClose:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+#SignUp_termsModal > h1{
+	margin-top: 50px;
+}
+
+#SignUp_mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	background-color: #000;
+	display: none;
+} */
+
+/* popupmenu css End */
+/* signup css end */
+
+/* --------------------------------------------- */
+
+/* mypage(account-profile.html) css start */
+
+/* myPage_header Section css Start */
+
+#myPage_Select{
+    text-align: center;
+}
+
+#myPage_reWriteMyInfo:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_header_myBag{
+    display: none;
+    text-align: center;
+}
+
+#myPage_header_reWriteMyInfo{
+    text-align: center;
+    margin-top: -50px;
+}
+
+
+
+
+/* myPage_header Section css End */
+
+/* myPage_inputSection css Start */
+
+/* inputSection checkpassword css Start */
+
+
+#myPage_changeProfileWrapper{
+	width: 100%;
+}
+
+#myPage_profileImgDiv{
+	width: 100%;
+}
+
+
+#myPage_profileImgPreCheckDiv{
+	text-align: center;
+/* 	width: 33%; */
+	margin: 0 auto;
+/* 	display: flex; */
+/* 	position : relative; */
+	border-radius: 50%;
+}
+
+/* #myPage_profileImgPreCheckDiv:after{ */
+/* 	content: ""; */
+/* 	display: block; */
+/* 	padding-bottom: 100%; */
+/* } */
+
+#myPage_profileImgPreCheckImg{
+	border-radius: 50%;
+/* 	position: absolute; */
+	width: 408px;
+	height: 408px;
+}
+
+/* #deleteDiv{ */
+/* 	position: relative; */
+/* 	width: 50%; */
+/* 	text-align: center; */
+/* } */
+
+/* #deleteDiv:after{ */
+/* 	content: ""; */
+/* 	display: block; */
+/* 	padding-bottom: 100%; */
+/* } */
+
+/* #myPage_submitBtn2{ */
+/* 	position: absolute; */
+/* 	margin-left: 195px; */
+/* } */
+
+
+
+#myPage_inputSection{
+    display : block;
+/*     padding-left: 425px; */
+	width: 500px;
+    margin: 0 atuo;
+}
+
+#myPage_profileImgDiv > label{
+	padding-left: 465px;
+}
+
+#myPage_profileImgDiv > label , #myPage_uploadProfileImg{
+	margin: 0 auto;
+}
+
+#myPage_uploadProfileImg{
+	width: 300px;
+	margin-top: 5px;
+}
+
+#Account_New_Password{
+    width : 220.99px;
+}
+
+#myPage_inputSection_checkPassword{
+    width: 500px;
+}
+
+#myPage_inputSection_checkPassword_inputDiv{
+    display: flex;
+}
+
+#myPage_inputSection_checkPasswordBtn{
+    border-radius: 0px;
+    width: 100px;
+    margin-left: 30px;
+}
+
+/* inputSection checkpassword css End */
+
+/* inputSection Change Nickname css Start */
+
+#account_First_Name{
+    width : 220.99px;
+}
+
+#myPage_inputSection_changeNickname{
+    width: 500px;
+}
+
+#myPage_inputSection_changeNickname_inputDiv{
+    display: flex;
+}
+
+#myPage_inputSection_changeNicknameBtn{
+    border-radius: 0px;
+    width: 100px;
+    margin-left: 30px;
+}
+
+/* inputSection Change Nickname css End */
+
+
+/* myPage_inputSection css End */
+
+/* myPage_myBag css Start */
+
+#myPage_myBag_Section{
+    display : none;
+    text-align: center;
+    padding-left: 495px;
+    position: absolute;
+}
+
+#myPage_myBag_myArticle:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#myPage_myBag_myReview:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#myPage_myBag_myComment:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#myPage_myBag_scrap:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* myPage_myBag_myArticle_div CSS Start  */
+
+#myPage_myBag_myArticle_div{
+    display: none;
+    text-align: center;
+    margin-top : auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 300px;
+}
+
+#myPage_myBag_myArticle_form{
+    text-align: left;
+    text-decoration-color: black;
+    margin-left: 50px;
+}
+
+#myPage_myBag_myArticle_1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myArticle_2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myArticle_3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myArticle_4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myArticle_1{
+    border:2px solid rgb(195, 190, 190); 
+}
+
+#myPage_myBag_myArticle_2{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myArticle_3{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myArticle_4{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myArticle_div img{
+    border: 1px solid black;
+    width: 100px;
+}
+
+/* myPage_myBag_myArticle_div CSS End  */
+
+/* myPage_myBag_myReview_div CSS Start */
+
+#myPage_myBag_myReview_div{
+    display: none;
+    text-align: center;
+    margin-top : auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 300px;
+}
+
+#myPage_myBag_myReview_form{
+    text-align: left;
+    text-decoration-color: black;
+    margin-left: 50px;
+}
+
+#myPage_myBag_myReview_1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myReview_2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myReview_3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myReview_4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myReview_div img{
+    border: 1px solid black;
+    width: 100px;
+}
+
+#myPage_myBag_myReview_1{
+    border:2px solid rgb(195, 190, 190); 
+}
+
+#myPage_myBag_myReview_2{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myReview_3{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myReview_4{
+    border:2px solid rgb(195, 190, 190);
+}
+
+/* myPage_myBag_myReview_div CSS End */
+
+/* myPage_myBag_myComment_div CSS Start */
+#myPage_myBag_myComment_div{
+    display: none;
+    text-align: center;
+    margin-top : auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 300px;
+}
+
+#myPage_myBag_myComment_form{
+    text-align: left;
+    text-decoration-color: black;
+    margin-left: 50px;
+}
+
+#myPage_myBag_myComment_1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myComment_2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myComment_3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myComment_4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myComment_1{
+    border:2px solid rgb(195, 190, 190); 
+}
+
+#myPage_myBag_myComment_2{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myComment_3{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myComment_4{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myComment_div img{
+    border: 1px solid black;
+    width: 100px;
+}
+
+/* myPage_myBag_myComment_div CSS End */
+
+/* myPage_myBag_myScrap_div CSS Start */
+
+#myPage_myBag_myScrap_div{
+    display: none;
+    text-align: center;
+    margin-top : auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 300px;
+}
+
+#myPage_myBag_myScrap_form{
+    text-align: left;
+    text-decoration-color: black;
+    margin-left: 50px;
+}
+
+#myPage_myBag_myScrap_1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myScrap_2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myScrap_3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myScrap_4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myPage_myBag_myScrap_1{
+    border:2px solid rgb(195, 190, 190); 
+}
+
+#myPage_myBag_myScrap_2{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myScrap_3{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myScrap_4{
+    border:2px solid rgb(195, 190, 190);
+}
+
+#myPage_myBag_myScrap_div img{
+    border: 1px solid black;
+    width: 100px;
+}
+
+/* myPage_myBag_myScrap_div CSS End */
+
+/* myPage_myBag CSS End */
+
+/* mypage(account-profile.html) css End */
+
+/* login.html CSS Start */
+
+#login_findIdPw>span:hover{
+    text-decoration: underline;
+}
+
+#login_noAccountDiv>span>a:hover{
+    text-decoration: underline;
+}
+
+#login_loginBtn>button{
+    color: black;
+    background-color: rgb(255 240 240 / 70%);
+    border-color: black;
+}
+
+#login_easyLoginSection{
+    padding-left: 129px;
+}
+
+#login_easyLoginSection>div>img{
+    width: 48px;
+    height: 48px;
+}
+
+#login_easyLoginSection>div>a:hover{
+    cursor: pointer;
+}
+
+#login_easyLoginSection>div{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* login.html CSS End */

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/* .border-bottom{ */
+/* 	border-bottom: 1px solid #E2E5F1; */
+/* } */
+
+/* .pt-3{ */
+/* 	padding-bottom: 1rem; */
+/* } */
+
+/* .review_delete_btn a:hover{ */
+/* 	color: #9397AD; */
+/* } */
+
+.review_full {
+	display : inline-block;
+	color: #9397AD;
+	cursor:pointer;
+}
+
+.shop-bottom-bar {
+	justify-content: center;
+}
+
+.breadcrumb {
+	margin: 20px 0px;
+}
+
+.section{
+	padding: 20px 0px 40px 0px;
+}
+
+.section-heading{
+	margin-bottom: 10px;
+}
+
+.perfume_list_h1{
+	margin-bottom: 20px;
+}
+
+.input-group{
+	margin: 15px 0px 0px 0px;
+}
+
+
+ /* 페이지 이동 번호 */ 
+.ms-lg-auto {
+    position: relative !important;
+    margin : 40px 0 !important;
+    display: grid !important;
+    place-items: center;
+}
+
+.page-link:hover {
+	background-color: #e63946;
+	border-color: #e63946;
+	color: #fff;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="review">
+	<select id="review_list" parameterType="review" resultType="review">
+		select * from review
+		where productid = #{productid}
+		ORDER by review_id desc
+	</select>
+	
+	<insert id="review_upload" parameterType="review">
+		insert into review (review_id, productid, user_id, nickname, re_date, re_content, user_fname_en
+		<if test="re_fname != null">
+         ,re_fname, re_fsize, re_fname_en
+         </if>
+		)
+		values (review_SQ.nextval, #{productid}, #{user_id}, #{nickname}, sysdate, #{re_content}, #{user_fname_en}
+		<if test="re_fname != null">
+         ,#{re_fname}, #{re_fsize}, #{re_fname_en}
+         </if>
+		)
+	</insert>
+	
+	<select id="review_cnt" resultType="java.lang.Integer">
+		select count(*) from review
+		where productid = #{productid}
+	</select>
+	
+	<update id="review_update" parameterType="review">
+		UPDATE review set re_content = #{re_content}
+		where REVIEW_ID = #{review_id}
+	</update>
+	
+	<delete id="review_delete" parameterType="review">
+		delete from review
+		where review_id = #{review_id}
+		and productid = #{productid}
+	</delete>
+	
+	<select id="main_product_list" resultType="mainReview">
+		select * from PERFUME_LIST
+		where productid = '556NM3WACIARPM' or 
+			productid = '555WS5ROSSPAPF' or 
+			productid = '554NM5WACIGRPM'
+	</select>
+	
+	<select id="main_review_list1" resultType="mainReview">
+		select * from review
+		where productid = '556NM3WACIARPM'
+		order by review_id desc
+	</select>
+	
+	<select id="main_review_list2" resultType="mainReview">
+		select * from review
+		where productid = '555WS5ROSSPAPF'
+		order by review_id desc
+	</select>
+	
+	<select id="main_review_list3" resultType="mainReview">
+		select * from review
+		where productid = '554NM5WACIGRPM'
+		order by review_id desc
+	</select>
+</mapper>
